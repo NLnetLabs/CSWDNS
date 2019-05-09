@@ -102,7 +102,7 @@ installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
 
     You can find the IPv4 and IPv6 address of your master server here:
 
-      * <http://bangkok.lol/teams.html>
+      * <http://bangkok.lol/teams.shtml>
 
     You can check the contens for this domain using:
 
