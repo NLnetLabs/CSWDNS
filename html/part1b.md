@@ -1,4 +1,4 @@
-% Set up an Authoratative Name Server using NSD
+% Set up an Authoritative Name Server using NSD
 
 We will start with setting up a single authoritative nameserver.  We will start with
 installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
