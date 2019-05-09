@@ -1,0 +1,5 @@
+<html><head><title>DNS privacy lab</title></head>
+<body>
+<!--#include virtual="/menu.html" -->
+<!--#include virtual="/part_privacy.html" -->
+</body>
