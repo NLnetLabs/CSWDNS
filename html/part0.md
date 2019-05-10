@@ -17,7 +17,7 @@ resolver.  The `auth-0` machine will
 play the role of the authoratative DNS server for your team.
 
 You can see the addresses and names of the servers of your team on the [teams
-page](teams.html).
+page](teams.shtml).
 
 To which team you belong will be determined during the course.
 You will also be working with a domain of your liking within the `bangkok.lol`
