@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>OpenDNSSEC Lab</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+width: 728px;
+max-width: 99%;
+box-sizing: border-box;
+padding: 30px 30px 8rem 30px;
+margin-left: auto;
+margin-right: auto;
+}
+body a {
+background-color: transparent;
+}
+body a:active,
+body a:hover {
+outline: 0;
+}
+body strong {
+font-weight: bold;
+}
+body h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+body img {
+border: 0;
+}
+body hr {
+box-sizing: content-box;
+height: 0;
+}
+body pre {
+overflow: auto;
+}
+body code,
+body kbd,
+body pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+body input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+body html input[disabled] {
+cursor: default;
+}
+body input {
+line-height: normal;
+}
+body input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+body table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+body td,
+body th {
+padding: 0;
+}
+body * {
+box-sizing: border-box;
+}
+body input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+body a {
+color: #4078c0;
+text-decoration: none;
+}
+body a:hover,
+body a:active {
+text-decoration: underline;
+}
+body hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+body hr:before {
+display: table;
+content: "";
+}
+body hr:after {
+display: table;
+clear: both;
+content: "";
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+body h1 {
+font-size: 30px;
+}
+body h2 {
+font-size: 21px;
+}
+body h3 {
+font-size: 16px;
+}
+body h4 {
+font-size: 14px;
+}
+body h5 {
+font-size: 12px;
+}
+body h6 {
+font-size: 11px;
+}
+body blockquote {
+margin: 0;
+}
+body ul,
+body ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+body ol ol,
+body ul ol {
+list-style-type: lower-roman;
+}
+body ul ul ol,
+body ul ol ol,
+body ol ul ol,
+body ol ol ol {
+list-style-type: lower-alpha;
+}
+body dd {
+margin-left: 0;
+}
+body code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+body pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+body .select::-ms-expand {
+opacity: 0;
+}
+body .octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+body .octicon-link:before {
+content: '\f05c';
+}
+body:before {
+display: table;
+content: "";
+}
+body:after {
+display: table;
+clear: both;
+content: "";
+}
+body>*:first-child {
+margin-top: 0 !important;
+}
+body>*:last-child {
+margin-bottom: 0 !important;
+}
+body a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+body .anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+body .anchor:focus {
+outline: none;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+body h1 .octicon-link,
+body h2 .octicon-link,
+body h3 .octicon-link,
+body h4 .octicon-link,
+body h5 .octicon-link,
+body h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+body h1:hover .anchor,
+body h2:hover .anchor,
+body h3:hover .anchor,
+body h4:hover .anchor,
+body h5:hover .anchor,
+body h6:hover .anchor {
+text-decoration: none;
+}
+body h1:hover .anchor .octicon-link,
+body h2:hover .anchor .octicon-link,
+body h3:hover .anchor .octicon-link,
+body h4:hover .anchor .octicon-link,
+body h5:hover .anchor .octicon-link,
+body h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+body h1 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.2;
+}
+body h1 .anchor {
+line-height: 1;
+}
+body h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+line-height: 1.225;
+}
+body h2 .anchor {
+line-height: 1;
+}
+body h3 {
+font-size: 1.25em;
+line-height: 1.43;
+}
+body h3 .anchor {
+line-height: 1.2;
+}
+body h4 {
+font-size: 1em;
+}
+body h4 .anchor {
+line-height: 1.2;
+}
+body h5 {
+font-size: 1em;
+}
+body h5 .anchor {
+line-height: 1.1;
+}
+body h6 {
+font-size: 1em;
+color: #777;
+}
+body h6 .anchor {
+line-height: 1.1;
+}
+body p,
+body blockquote,
+body ul,
+body ol,
+body dl,
+body table,
+body pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+body hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+body ul,
+body ol {
+padding-left: 2em;
+}
+body ul ul,
+body ul ol,
+body ol ol,
+body ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+body li>p {
+margin-top: 16px;
+}
+body dl {
+padding: 0;
+}
+body dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+body dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+body blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+body blockquote>:first-child {
+margin-top: 0;
+}
+body blockquote>:last-child {
+margin-bottom: 0;
+}
+body table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+body table th {
+font-weight: bold;
+}
+body table th,
+body table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+body table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+body table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+body img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+body code {
+padding: 0;
+padding-top: 0;
+padding-bottom: 0;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+body code:before,
+body code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+body pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+body .highlight {
+margin-bottom: 16px;
+}
+body .highlight pre,
+body pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+body .highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+body pre {
+word-wrap: normal;
+}
+body pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+body pre code:before,
+body pre code:after {
+content: normal;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .pl-c {
+color: #969896;
+}
+body .pl-c1,
+body .pl-s .pl-v {
+color: #0086b3;
+}
+body .pl-e,
+body .pl-en {
+color: #795da3;
+}
+body .pl-s .pl-s1,
+body .pl-smi {
+color: #333;
+}
+body .pl-ent {
+color: #63a35c;
+}
+body .pl-k {
+color: #a71d5d;
+}
+body .pl-pds,
+body .pl-s,
+body .pl-s .pl-pse .pl-s1,
+body .pl-sr,
+body .pl-sr .pl-cce,
+body .pl-sr .pl-sra,
+body .pl-sr .pl-sre {
+color: #183691;
+}
+body .pl-v {
+color: #ed6a43;
+}
+body .pl-id {
+color: #b52a1d;
+}
+body .pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+body .pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+body .pl-ml {
+color: #693a17;
+}
+body .pl-mh,
+body .pl-mh .pl-en,
+body .pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+body .pl-mq {
+color: #008080;
+}
+body .pl-mi {
+color: #333;
+font-style: italic;
+}
+body .pl-mb {
+color: #333;
+font-weight: bold;
+}
+body .pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+body .pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+body .pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+body .pl-mo {
+color: #1d3e81;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .task-list-item {
+list-style-type: none;
+}
+body .task-list-item+.task-list-item {
+margin-top: 3px;
+}
+body .task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+body :checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+</style>
+</head>
+<body>
+<header>
+<h1 class="title">OpenDNSSEC Lab</h1>
+</header>
+<h2 id="editing-the-opendnssec-configuration">Editing the OpenDNSSEC Configuration</h2>
+<p>The configuration needs to be adjusted to better fit this setup.</p>
+<ol type="1">
+<li><p>Open the configuration for editing:</p>
+<pre><code> /etc/opendnssec/conf.xml</code></pre>
+<p>The repository list was adjusted in a previous lab.</p></li>
+<li><p>We will be rolling keys in a rapid pace, burning up a lot of keys in a year. The default setting is to pre-generate keys for a year, which will take a long time with so many keys. So we want to decrease this by modifying the setting AutomaticKeyGenerationPeriod to:</p>
+<pre><code> &lt;AutomaticKeyGenerationPeriod&gt;P2D&lt;/AutomaticKeyGenerationPeriod&gt;</code></pre></li>
+<li><p>There is only one core on the lab machine and the performance was not increased by using multiple threads. For this lab, will then only use one thread for the Signer in OpenDNSSEC.</p>
+<pre><code> &lt;WorkerThreads&gt;1&lt;/WorkerThreads&gt;
+ &lt;SignerThreads&gt;1&lt;/SignerThreads&gt;</code></pre></li>
+<li><p>Save the file and exit.</p></li>
+<li><p>Setup the KASP database:</p>
+<pre><code> ods-enforcer-db-setup</code></pre>
+<p>And answer yes.</p></li>
+</ol>
+<h2 id="creating-a-policy">Creating a Policy</h2>
+<p>We will use the provided KASP policy “lab”. It uses very low values on the timing parameters, just so that key rollovers will go faster in this lab environment.</p>
+<ol type="1">
+<li><p>Open the kasp.xml file:</p>
+<pre><code> /etc/opendnssec/kasp.xml</code></pre></li>
+<li><p>The policy we’re going to use is called “lab”, it is already defined beginning at the following statement:</p>
+<pre><code> &lt;Policy name=&quot;lab&quot;&gt;</code></pre></li>
+<li><p>Signatures are set to have a short lifetime:</p>
+<pre><code> &lt;Signatures&gt;
+   &lt;Resign&gt;PT10M&lt;/Resign&gt;
+   &lt;Refresh&gt;PT30M&lt;/Refresh&gt;
+   &lt;Validity&gt;
+     &lt;Default&gt;PT1H&lt;/Default&gt;
+     &lt;Denial&gt;PT1H&lt;/Denial&gt;
+   &lt;/Validity&gt;
+   &lt;Jitter&gt;PT1M&lt;/Jitter&gt;
+   &lt;InceptionOffset&gt;PT3600S&lt;/InceptionOffset&gt;
+   &lt;MaxZoneTTL&gt;PT300S&lt;/MaxZoneTTL&gt;
+ &lt;/Signatures&gt;</code></pre></li>
+<li><p>The TTL and safety margins for the keys are also lower:</p>
+<pre><code> &lt;TTL&gt;PT300S&lt;/TTL&gt;
+ &lt;RetireSafety&gt;PT360S&lt;/RetireSafety&gt;
+ &lt;PublishSafety&gt;PT360S&lt;/PublishSafety&gt;</code></pre></li>
+<li><p>Set the KSK lifetime to 2 hours and the ZSK to 1 hours. Let’s change the algorithms of both the KSK and ZSK to ECDSAP256SHA256 (algorithm 13):</p>
+<pre><code> &lt;KSK&gt;
+   &lt;Algorithm length=&quot;256&quot;&gt;13&lt;/Algorithm&gt;
+   &lt;Lifetime&gt;PT2H&lt;/Lifetime&gt;
+   &lt;Repository&gt;SoftHSM&lt;/Repository&gt;
+ &lt;/KSK&gt;
+
+ &lt;ZSK&gt;
+   &lt;Algorithm length=&quot;256&quot;&gt;13&lt;/Algorithm&gt;
+   &lt;Lifetime&gt;PT1H&lt;/Lifetime&gt;
+   &lt;Repository&gt;SoftHSM&lt;/Repository&gt;
+ &lt;/ZSK&gt;</code></pre></li>
+<li><p>The values for the SOA can be found in the zone we created earlier. We will use unixtime as the serial counter, like we did when signing using ldns.</p>
+<pre><code> &lt;Zone&gt;
+   &lt;PropagationDelay&gt;PT300S&lt;/PropagationDelay&gt;
+   &lt;SOA&gt;
+     &lt;TTL&gt;PT60S&lt;/TTL&gt;
+     &lt;Minimum&gt;PT60S&lt;/Minimum&gt;
+     &lt;Serial&gt;unixtime&lt;/Serial&gt;
+   &lt;/SOA&gt;  
+ &lt;/Zone&gt;</code></pre></li>
+<li><p>And these values are from the parent zone:</p>
+<pre><code> &lt;Parent&gt;
+   &lt;PropagationDelay&gt;PT5M&lt;/PropagationDelay&gt;
+   &lt;DS&gt;
+     &lt;TTL&gt;PT5M&lt;/TTL&gt;
+   &lt;/DS&gt;
+   &lt;SOA&gt;
+     &lt;TTL&gt;PT5M&lt;/TTL&gt;
+     &lt;Minimum&gt;PT1M&lt;/Minimum&gt;
+   &lt;/SOA&gt;
+ &lt;/Parent&gt;</code></pre></li>
+<li><p>Save and exit.</p></li>
+<li><p>Verify that the KASP looks ok. The database has not been created yet, you will thus get a warning about this.</p>
+<pre><code> ods-kaspcheck</code></pre>
+<p>OpenDNSSEC will warn you that when you use Y (for Year) in duration fields, it is interpreted as 365 days.</p></li>
+</ol>
+<h2 id="start-opendnssec">Start OpenDNSSEC</h2>
+<ol type="1">
+<li><p>At this point we should start the OpenDNSSEC daemons. Both enforcer and signer daemons are started using:</p>
+<pre><code>ods-control start</code></pre></li>
+<li><p>Be sure to monitor the system log for any error conditions, some problems can only be reported once the daemons are already in the background.</p>
+<pre><code>tail /var/log/syslog</code></pre></li>
+<li><p>Import the initial KASP in OpenDNSSEC:</p>
+<pre><code>ods-enforcer policy import</code></pre></li>
+</ol>
+<h2 id="add-and-sign-the-zone">Add and sign the Zone</h2>
+<p>Zones can be added in two ways, either by command line or by editing the zonelist.xml. The command line is the one for now. We will create a new zonfile for this exercise.</p>
+<ol type="1">
+<li><p>Create a zonefile called <code>ods-&lt;name&gt;</code>. The domain name for this zone will be <code>ods-&lt;name&gt;.bangkok.lol</code>. It might be easiest to copy your first (unsigned!) zone and adapt values.</p></li>
+<li><p>Add the zone to the enforcer which will in turn inform the zone to be signed:</p>
+<pre><code>ods-enforcer zone add --zone ods-&lt;name&gt;.bangkok.lol --policy lab \
+            --input /etc/nsd/ods-&lt;name&gt; \
+            --output /etc/nsd/ods-&lt;name&gt;.signed</code></pre></li>
+<li><p>Check the syslog to see that the two daemons started, that the signconf was generated, and that Signer engine signed the zone:</p>
+<pre><code>tail -n 100 /var/log/syslog</code></pre></li>
+<li><p>Have a look on the signconf:</p>
+<pre><code>/var/lib/opendnssec/signconf/ods-&lt;name&gt;.bangkok.lol.xml</code></pre></li>
+<li><p>Have a look on the signed zone file:</p>
+<pre><code>/etc/nsd/ods-&lt;name&gt;.signed</code></pre></li>
+<li><p>Add the newly created signed zone to the NSD configuration:</p></li>
+</ol>
+<pre><code>    zone:
+          name: &quot;ods-&lt;name&gt;.bangkok.lol&quot;
+          zonefile: /etc/nsd/ods-&lt;name&gt;.signed</code></pre>
+<p>Instruct NSD to reload the nsd.conf configuration:</p>
+<pre><code>    nsd-control reconfig</code></pre>
+<h2 id="publishing-the-ds-rr">Publishing the DS RR</h2>
+<p>The zone is now signed and we have verified that DNSSEC is working. It is then time to publish the DS RR.</p>
+<ol type="1">
+<li><p>Wait until the KSK is ready to be published in the parent zone:</p>
+<pre><code>ods-enforcer key list -v</code></pre></li>
+<li><p>Show the DS RRs that we are about to publish. Notice that they share the key tag with the KSK:</p>
+<pre><code>ods-enforcer key export --zone ods-&lt;name&gt;.bangkok.lol --ds</code></pre></li>
+<li><p>Add the DS records to your unsigned zone (<code>ods-&lt;name&gt;</code>) and replace the DS type with <code>CDS</code>, like you did before when signing with ldns.</p>
+<p>Now resign our zone and instuct NSD to load the latest version:</p>
+<pre><code>ods-signer sign ods-&lt;name&gt;.bangkok.lol
+nsd-control reload</code></pre></li>
+<li><p>Wait until the DS has been updated. Check the DS with the following command:</p>
+<pre><code>dig @ns.bangkok.lol. ods-&lt;name&gt;.bangkok.lol DS</code></pre></li>
+<li><p>It is now safe to tell the Enforcer that it has been seen. Replace KEYTAG with the keytag of your current KSK.</p>
+<pre><code>ods-enforcer key ds-seen --zone ods-&lt;name&gt;.bangkok.lol --keytag KEYTAG</code></pre></li>
+<li><p>The KSK is now considered as active. Check the key list with the following command:</p>
+<pre><code>ods-enforcer key list</code></pre></li>
+<li><p>Verify that we can query the zone from your Unbound resolver. The AD-flag should be set:</p>
+<pre><code> dig +dnssec ods-&lt;name&gt;.bangkok.lol @res-&lt;team&gt;.do.dns-school.org</code></pre></li>
+</ol>
+<h2 id="ksk-rollover">KSK Rollover</h2>
+<p>The KSK rollover is usually done at the end of its lifetime. But a key rollover can be forced before that by issuing the rollover command.</p>
+<ol type="1">
+<li><p>Check how much time is left before the KSK should be rolled:</p>
+<pre><code>ods-enforcer key list</code></pre></li>
+<li><p>We will now force a key rollover. If a key rollover has been initiated then this command will be ignored:</p>
+<pre><code>ods-enforcer key rollover --zone ods-&lt;name&gt;.bangkok.lol --keytype KSK</code></pre></li>
+<li><p>Wait until the new KSK is ready. It should be maximum 10 minutes. If it is longer than that, then you probably missed to adjust a value in your KASP. Update the KASP to match the LAB policy given here in the document.</p>
+<pre><code>ods-enforcer key list -v</code></pre></li>
+<li><p>The DS RRs can be exported to the parent once the new KSK is ready.</p>
+<p>Get the new DS record using:</p>
+<pre><code>ods-enforcer key export --ds --zone ods-&lt;name&gt;.bangkok.lol</code></pre>
+<p>Add the DS record to your unsigned zone, change the RR type to CDS. After that you have to resign your zone and reload NSD, like you did before.</p></li>
+<li><p>Wait until the DS has been updated.</p>
+<pre><code>dig @ns.bangkok.lol. ods-&lt;name&gt;.bangkok.lol DS</code></pre></li>
+<li><p>It is now safe to tell the Enforcer that it has been seen:</p>
+<pre><code> ods-enforcer key ds-seen --zone ods-&lt;name&gt;.bangkok.lol --keytag KEYTAG</code></pre></li>
+<li><p>The new KSK is now considered as active.</p>
+<pre><code> ods-enforcer key list</code></pre></li>
+<li><p>Reload the zone contents in NSD to have the newly signed zone.</p>
+<pre><code> nsd-control reload</code></pre></li>
+<li><p>Verify that we can query the zone from the <em>resolver</em> machine.</p>
+<pre><code> dig +dnssec ods-&lt;name&gt;.bangkok.lol @res-&lt;team&gt;.do.dns-school.org</code></pre></li>
+</ol>
+</body>
+</html>

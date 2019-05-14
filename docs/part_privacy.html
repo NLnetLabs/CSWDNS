@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DNS privacy lab</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+width: 728px;
+max-width: 99%;
+box-sizing: border-box;
+padding: 30px 30px 8rem 30px;
+margin-left: auto;
+margin-right: auto;
+}
+body a {
+background-color: transparent;
+}
+body a:active,
+body a:hover {
+outline: 0;
+}
+body strong {
+font-weight: bold;
+}
+body h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+body img {
+border: 0;
+}
+body hr {
+box-sizing: content-box;
+height: 0;
+}
+body pre {
+overflow: auto;
+}
+body code,
+body kbd,
+body pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+body input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+body html input[disabled] {
+cursor: default;
+}
+body input {
+line-height: normal;
+}
+body input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+body table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+body td,
+body th {
+padding: 0;
+}
+body * {
+box-sizing: border-box;
+}
+body input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+body a {
+color: #4078c0;
+text-decoration: none;
+}
+body a:hover,
+body a:active {
+text-decoration: underline;
+}
+body hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+body hr:before {
+display: table;
+content: "";
+}
+body hr:after {
+display: table;
+clear: both;
+content: "";
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+body h1 {
+font-size: 30px;
+}
+body h2 {
+font-size: 21px;
+}
+body h3 {
+font-size: 16px;
+}
+body h4 {
+font-size: 14px;
+}
+body h5 {
+font-size: 12px;
+}
+body h6 {
+font-size: 11px;
+}
+body blockquote {
+margin: 0;
+}
+body ul,
+body ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+body ol ol,
+body ul ol {
+list-style-type: lower-roman;
+}
+body ul ul ol,
+body ul ol ol,
+body ol ul ol,
+body ol ol ol {
+list-style-type: lower-alpha;
+}
+body dd {
+margin-left: 0;
+}
+body code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+body pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+body .select::-ms-expand {
+opacity: 0;
+}
+body .octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+body .octicon-link:before {
+content: '\f05c';
+}
+body:before {
+display: table;
+content: "";
+}
+body:after {
+display: table;
+clear: both;
+content: "";
+}
+body>*:first-child {
+margin-top: 0 !important;
+}
+body>*:last-child {
+margin-bottom: 0 !important;
+}
+body a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+body .anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+body .anchor:focus {
+outline: none;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+body h1 .octicon-link,
+body h2 .octicon-link,
+body h3 .octicon-link,
+body h4 .octicon-link,
+body h5 .octicon-link,
+body h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+body h1:hover .anchor,
+body h2:hover .anchor,
+body h3:hover .anchor,
+body h4:hover .anchor,
+body h5:hover .anchor,
+body h6:hover .anchor {
+text-decoration: none;
+}
+body h1:hover .anchor .octicon-link,
+body h2:hover .anchor .octicon-link,
+body h3:hover .anchor .octicon-link,
+body h4:hover .anchor .octicon-link,
+body h5:hover .anchor .octicon-link,
+body h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+body h1 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.2;
+}
+body h1 .anchor {
+line-height: 1;
+}
+body h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+line-height: 1.225;
+}
+body h2 .anchor {
+line-height: 1;
+}
+body h3 {
+font-size: 1.25em;
+line-height: 1.43;
+}
+body h3 .anchor {
+line-height: 1.2;
+}
+body h4 {
+font-size: 1em;
+}
+body h4 .anchor {
+line-height: 1.2;
+}
+body h5 {
+font-size: 1em;
+}
+body h5 .anchor {
+line-height: 1.1;
+}
+body h6 {
+font-size: 1em;
+color: #777;
+}
+body h6 .anchor {
+line-height: 1.1;
+}
+body p,
+body blockquote,
+body ul,
+body ol,
+body dl,
+body table,
+body pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+body hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+body ul,
+body ol {
+padding-left: 2em;
+}
+body ul ul,
+body ul ol,
+body ol ol,
+body ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+body li>p {
+margin-top: 16px;
+}
+body dl {
+padding: 0;
+}
+body dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+body dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+body blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+body blockquote>:first-child {
+margin-top: 0;
+}
+body blockquote>:last-child {
+margin-bottom: 0;
+}
+body table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+body table th {
+font-weight: bold;
+}
+body table th,
+body table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+body table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+body table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+body img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+body code {
+padding: 0;
+padding-top: 0;
+padding-bottom: 0;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+body code:before,
+body code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+body pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+body .highlight {
+margin-bottom: 16px;
+}
+body .highlight pre,
+body pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+body .highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+body pre {
+word-wrap: normal;
+}
+body pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+body pre code:before,
+body pre code:after {
+content: normal;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .pl-c {
+color: #969896;
+}
+body .pl-c1,
+body .pl-s .pl-v {
+color: #0086b3;
+}
+body .pl-e,
+body .pl-en {
+color: #795da3;
+}
+body .pl-s .pl-s1,
+body .pl-smi {
+color: #333;
+}
+body .pl-ent {
+color: #63a35c;
+}
+body .pl-k {
+color: #a71d5d;
+}
+body .pl-pds,
+body .pl-s,
+body .pl-s .pl-pse .pl-s1,
+body .pl-sr,
+body .pl-sr .pl-cce,
+body .pl-sr .pl-sra,
+body .pl-sr .pl-sre {
+color: #183691;
+}
+body .pl-v {
+color: #ed6a43;
+}
+body .pl-id {
+color: #b52a1d;
+}
+body .pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+body .pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+body .pl-ml {
+color: #693a17;
+}
+body .pl-mh,
+body .pl-mh .pl-en,
+body .pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+body .pl-mq {
+color: #008080;
+}
+body .pl-mi {
+color: #333;
+font-style: italic;
+}
+body .pl-mb {
+color: #333;
+font-weight: bold;
+}
+body .pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+body .pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+body .pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+body .pl-mo {
+color: #1d3e81;
+}
+body kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+body .task-list-item {
+list-style-type: none;
+}
+body .task-list-item+.task-list-item {
+margin-top: 3px;
+}
+body .task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+body :checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+</style>
+</head>
+<body>
+<header>
+<h1 class="title">DNS privacy lab</h1>
+</header>
+<p>In this exercise we will have a look at the privacy implications of DNS resolution and will learn how to harden our DNS set-up against some of these issues.</p>
+<h2 id="resolver-to-authoritative-name-server-privacy">Resolver to authoritative name server privacy</h2>
+<p>We will first have a look at the data that is exposed in DNS transactions between the DNS resolver and the authoritative name server.</p>
+<h3 id="qname-minimisation">QNAME minimisation</h3>
+<p>Unbound already has a privacy feature enable by default. To get a better understanding of the potential privacy impact of DNS transactions we will disable this feature for now:</p>
+<ol type="1">
+<li>Disable QNAME minimisation support in your Unbound configuration: <code>qname-minimisation: no</code></li>
+</ol>
+<p>We will use the logging functionality in Unbound to display all the outgoing query information. Unbound has to be configured with a <code>verbosity</code> of 3 or higher to log all outgoing queries.</p>
+<ol start="2" type="1">
+<li>Restart your Unbound instance to make sure the cache is empty</li>
+<li>Monitor the Unbound log output for all outgoing queries (hint, grep for <code>sending</code>)</li>
+<li>Send a DNS query to Unbound (replace <code>&lt;team-number&gt;</code> with the number of your team): <code>drill www.bangkok.lol @res-&lt;team-number&gt;.do.dns-school.org</code></li>
+<li>Observe which information from the query is exposed to which upstream name servers.</li>
+</ol>
+<p>We will now repeat this exercise with QNAME minimisation enabled.</p>
+<ol start="6" type="1">
+<li>Enable QNAME minimisation support in your unbound configuration: <code>qname-minimisation: yes</code></li>
+<li>Restart your Unbound instance again to make sure the cache is empty</li>
+<li>Send the same DNS query to Unbound: <code>drill www.bangkok.lol @res-&lt;team-number&gt;.do.dns-school.org</code></li>
+<li>Observe what information from the query is exposed to which upstream name servers. What are the differences?</li>
+</ol>
+<h3 id="rfc7706">RFC7706</h3>
+<p>Another way to limit the queries that Unbound has to send upstream is by loading authoritative DNS data into Unbound. In this exercise we will do this for the root zone.</p>
+<ol start="6" type="1">
+<li>Add this to your Unbound configuration to have it transfer the root zone into the resolver, having this data already in the resolver means that we don’t have to send DNS queries to get it anymore:</li>
+</ol>
+<pre><code>   auth-zone:
+     name: &quot;.&quot;
+     master: 199.9.14.201         # b.root-servers.net
+     master: 192.33.4.12          # c.root-servers.net
+     master: 199.7.91.13          # d.root-servers.net
+     master: 192.5.5.241          # f.root-servers.net
+     master: 192.112.36.4         # g.root-servers.net
+     master: 193.0.14.129         # k.root-servers.net
+     master: 192.0.47.132         # xfr.cjr.dns.icann.org
+     master: 192.0.32.132         # xfr.lax.dns.icann.org
+     master: 2001:500:200::b      # b.root-servers.net
+     master: 2001:500:2::c        # c.root-servers.net
+     master: 2001:500:2d::d       # d.root-servers.net
+     master: 2001:500:2f::f       # f.root-servers.net
+     master: 2001:500:12::d0d     # g.root-servers.net
+     master: 2001:7fd::1          # k.root-servers.net
+     master: 2620:0:2830:202::132 # xfr.cjr.dns.icann.org
+     master: 2620:0:2d0:202::132  # xfr.lax.dns.icann.org
+     fallback-enabled: yes
+     for-downstream: no
+     for-upstream: yes</code></pre>
+<ol start="7" type="1">
+<li>Restart Unbound and again send the same query: <code>drill www.bangkok.lol @res-&lt;team-number&gt;.do.dns-school.org</code> How do the queries that are send to the root name servers with the auth-zone compare to the earlier queries for the same domain name?</li>
+</ol>
+<h3 id="aggressive-nsec">Aggressive NSEC</h3>
+<p>Yet another (and complimentary) way to reduce the number of outgoing queries is by using aggressive NSEC. Aggressive NSEC is at the moment disabled by default in Unbound. We will first use this default to observe the traffic without aggressive NSEC.</p>
+<p>We first need to get some NSEC records in our cache.</p>
+<ol start="8" type="1">
+<li><p>Send a query for a non-existing domain. Observe the returned NSEC records.</p>
+<pre><code>drill -D bangkok.nlnetlabs.nl @res-&lt;team-number&gt;.do.dns-school.org</code></pre>
+<p>For above query this is one of the NSEC records we get back:</p>
+<pre><code> balou.nlnetlabs.nl. 3600    IN  NSEC    bartok.nlnetlabs.nl.</code></pre></li>
+<li><p>Send a query for another domain that is covered by this NSEC record:</p>
+<pre><code>drill -D banana.nlnetlabs.nl @res-&lt;team-number&gt;.do.dns-school.org</code></pre>
+<p>If you now look at your Unbound log you will see that for both queries Unbound will contact the nlnetlabs.nl name server.</p></li>
+<li><p>Enable aggressive NSEC in your Unbound configuration:</p>
+<pre><code>aggressive-nsec: yes</code></pre></li>
+<li><p>Restart Unbound and send the same two queries:</p>
+<pre><code>drill -D bangkok.nlnetlabs.nl @res-&lt;team-number&gt;.do.dns-school.org
+
+drill -D banana.nlnetlabs.nl @res-&lt;team-number&gt;.do.dns-school.org</code></pre>
+<p>Can you see a difference in the queuries that are send to the nlnetlabs.nl name servers?</p></li>
+</ol>
+<h3 id="stubby">Stubby</h3>
+<p>We will use Stubby to proxy the DNS queries originating from our laptop over an encrypted channel to Unbound.</p>
+<ol start="11" type="1">
+<li>Install stubby on your laptop
+<ul>
+<li>Linux: <code>apt install stubby</code></li>
+<li>OS X: <code>brew install stubby</code></li>
+<li>Windows binaries available</li>
+</ul>
+<p>Have a look at <a href="https://dnsprivacy.org/wiki/display/DP/About+Stubby" class="uri">https://dnsprivacy.org/wiki/display/DP/About+Stubby</a> for detailed installation instructions.</p>
+<p>Although the default stubby configuration is already privacy aware, we will start with an empty configuration file to get a better understanding of all the different options.</p></li>
+<li><p>Create a stubby configuration file names <code>stubby-bangkok.yml</code> and add this configuration:</p>
+<pre><code>listen_addresses:
+  - 127.0.0.1
+  - 0::1
+upstream_recursive_servers:
+  - address_data: 206.189.38.51
+edns_client_subnet_private: 0</code></pre>
+<p>Stubby will now listen on 127.0.0.1 and ::1 for DNS queries and send these queries upstream to our test resolver (ecs-resolver.do.dns-school.org). If your laptop already has a process listening on port 53 for this address try to use another local address, like 127.0.0.10.</p></li>
+</ol>
+<p><strong><em>TODO: edit ACL for ecs resolver.</em></strong></p>
+<ol start="13" type="1">
+<li><p>Run stubby:</p>
+<pre><code>stubby -C stubby-bangkok.yml -l</code></pre></li>
+<li><p>Test your configuration by sending a DNS query to stubby:</p>
+<pre><code>drill dns-school.org @127.0.0.1</code></pre></li>
+</ol>
+<h3 id="edns-client-subnet-client-information-exposure">EDNS client subnet, client information exposure</h3>
+<p>In the previous example we configured stubby to send all queries to a resolver that sends ECS information in queries going to the google.com name servers. We are now going to look at the privacy implications of ECS.</p>
+<ol start="15" type="1">
+<li><p>Query stubby for the TXT record of the <code>o-o.myaddr.l.google.com.</code> domain.</p>
+<pre><code>drill o-o.myaddr.l.google.com. @127.0.0.1 txt</code></pre>
+<p>This test domain returns the received ECS prefix as TXT record. You will now see the prefix of your IP address, even though this information is usually hidden by using the resolver!</p>
+<p>The <a href="https://tools.ietf.org/html/rfc7871">ECS RFC</a> mandates that resolvers must use the received ECS option from the query if this is available and not override it themselves. This means that is we as client send a /0 option the ECS resolver should not reveal our address. It is possible to configure stubby to add the /0 option to every outgoing query.</p></li>
+<li><p>Enable the <code>edns_client_subnet_private</code> option in your <code>stubby-bangkok.yml</code> by setting it to 1 (which is also the default):</p>
+<pre><code>edns_client_subnet_private: 1</code></pre></li>
+<li><p>Query stubby again for the TXT record of the <code>o-o.myaddr.l.google.com.</code> domain.</p>
+<pre><code>drill o-o.myaddr.l.google.com. @127.0.0.1 txt</code></pre></li>
+<li><p>Observe the difference in the information received at the google.com name server. Note that the google name servers will display the source address of the <em>resolver</em> when receiving an ECS option without useful information (like a /0 prefix).</p></li>
+</ol>
+<h2 id="stub-to-resolver-privacy">Stub to resolver privacy</h2>
+<p>We are now going to have a look at the privacy implications between the stub and the resolver. We are going to do this using stubby and your own Unbound installation.</p>
+<ol start="19" type="1">
+<li><p>Change the stubby configuration to send all queries to your own Unbound resolver:</p>
+<pre><code>upstream_recursive_servers:
+  - address_data: &lt;your-Unbound-IP-address&gt;</code></pre>
+<p>Replace <code>&lt;your-Unbound-IP-address&gt;</code> with the IP address of the machine running Unbound.</p></li>
+</ol>
+<h3 id="dns-traffic-on-the-wire">DNS traffic on the wire</h3>
+<p>To get a better understanding of the privacy implications between the stub and the resolver we will use wireshark to monitor the network traffic.</p>
+<ol start="20" type="1">
+<li>Install wireshark on your local machine (https://www.wireshark.org/download.html).</li>
+<li>Start the capture on your network interface</li>
+<li>Limit the displayed traffic to traffic that is going to and from your resolver, e.g. using the filter <code>ip.addr==&lt;your-Unbound-IP-address&gt;</code> where <code>&lt;your-Unbound-IP-address&gt;</code> the is replaced by address of your Unbound instance.</li>
+<li><p>Send a DNS query via stubby to your Unbound resolver:</p>
+<pre><code>drill bangkok.lol @127.0.0.1</code></pre></li>
+<li><p>Observe in wireshark the DNS information that is visible on the wire. This data will be visible to everybody that can somehow see the data that your machine is sending and receiving!</p></li>
+</ol>
+<h3 id="dns-encryption">DNS encryption</h3>
+<p>In this part of the exercise we will encrypt the DNS traffic between stubby on our laptop and Unbound on the experimentation server. This will be done by sending all the DNS transactions over TLS (<a href="https://tools.ietf.org/html/rfc7858">DoT</a>).</p>
+<p>We will start by configuring Unbound to be a TLS server. For this a TLS certificate is needed. In this exercise we will request a <a href="https://letsencrypt.org/">Let’s Encrypt</a> certificate using <a href="https://certbot.eff.org/">certbot</a>.</p>
+<ol start="25" type="1">
+<li><p>Install certbot on the resolver server:</p>
+<pre><code>apt install python3-certbot</code></pre></li>
+<li><p>Request a certificate for the domain of your resolver:</p>
+<pre><code>certbot certonly --standalone -d res-&lt;team-number&gt;.do.dns-school.org</code></pre>
+<p>Replace <em>&lt;team-number&gt;</em> with your team number.</p>
+<p>Your newly generated CA signed certificate is now available at <code>/etc/letsencrypt/live/res-&lt;team-number&gt;.do.dns-school.org/fullchain.pem</code>. The key matching this certificate is located at <code>/etc/letsencrypt/live/res-&lt;team-number&gt;.do.dns-school.org/privkey.pem</code>. Time to tell Unbound where to find these files.</p></li>
+<li><p>Add these lines to your Unbound configuration:</p>
+<pre><code>tls-service-pem: &quot;/etc/letsencrypt/live/res-&lt;team-number&gt;.do.dns-school.org/fullchain.pem&quot;
+tls-service-key: &quot;/etc/letsencrypt/live/res-&lt;team-number&gt;.do.dns-school.org/privkey.pem&quot;
+port: 853</code></pre>
+<p>Over TCP on port 853 only TLS connection are will be accepted by Unbound now. It is however still possible to send unencrypted queries over UDP to port 853, let’s disable UDP to the client to make sure all our queries to Unbound will be encrypted.</p></li>
+<li><p>In the Unbound configuration:</p>
+<pre><code>do-udp: no
+udp-upstream-without-downstream: yes</code></pre>
+<p>Now that Unbound (only) accepts DNS queries over TLS we should change the stubby configuration to use TLS for the outgoing queries.</p></li>
+<li><p>Edit you stubby configuration to always send queries over a TLS connection:</p>
+<pre><code>dns_transport_list:
+  - GETDNS_TRANSPORT_TLS</code></pre></li>
+</ol>
+<p>Because we requested a certificate that is signed by a trusted CA we can use the CAs store that is (probably) already on your machine for the authentication.</p>
+<ol start="30" type="1">
+<li><p>Edit your stubby.conf to only send queries when the TLS connection is authenticated, and specify the location of the CAs you trust:</p>
+<pre><code>tls_authentication: GETDNS_AUTHENTICATION_REQUIRED
+tls_ca_path: &quot;/etc/ssl/certs/&quot;</code></pre></li>
+<li><p>Edit the <code>upstream_recursive_server</code> stubby configuration to specify the domain name in the certificate that will be used for authentication:</p>
+<pre><code>upstream_recursive_servers:
+ - address_data: &lt;your-Unbound-IP-address&gt;
+   tls_auth_name: &quot;res-&lt;team-number&gt;.do.dns-school.org&quot;</code></pre></li>
+<li><p>Send a query to stubby and observe using whireshark the data on the wire between stubby and Unbound</p></li>
+</ol>
+<!---
+***TODO, (as bonus?):***
+ - better TCP performance
+   - stubby: idle_timeout
+   - unbound: incoming-num-tcp, tcp-idle-timeout
+   - TCP fasty open
+ - android Pie
+ - Monitoring
+ - Cert renewal**
+-->
+</body>
+</html>
