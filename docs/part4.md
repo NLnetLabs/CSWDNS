@@ -220,8 +220,9 @@ The KSK rollover is usually done at the end of its lifetime. But a key rollover 
 
         ods-enforcer key export --ds --zone ods-<name>.bangkok.lol
 
-    Add the DS record to your unsigned zone, change the RR type to CDS. After
-    that you have to resign your zone and reload NSD, like you did before.
+    Add the DS record to your unsigned zone, change the RR type to CDS.
+    **Remove the old CDS resource record!**
+    After that you have to resign your zone and reload NSD, like you did before.
 
 5.  Wait until the DS has been updated.
 

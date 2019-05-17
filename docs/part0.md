@@ -14,7 +14,7 @@ roles.  Two of these servers are:
 
 The machine `res-0` will play the role of a caching recursive DNS
 resolver.  The `auth-0` machine will
-play the role of the authoratative DNS server for your team.
+play the role of the authoritative DNS server for your team.
 
 You can see the addresses and names of the servers of your team on the [teams
 page](teams.shtml).

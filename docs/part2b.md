@@ -165,7 +165,7 @@ This excercise takes place on your master server auth-*\<team nr\>*.do.dns-schoo
     If you obtained the root anchor key (the resolver machine has it for sure
     ), you could have better checked the validity of the zone:
 
-        ldns-verify-zone -k /var/lib/unbound/root.key <name>.signed
+        ldns-verify-zone -S -k /var/lib/unbound/root.key <name>.signed
 
 6.  Additional questions.
 

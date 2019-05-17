@@ -652,7 +652,7 @@ nsd-control reload</code></pre>
 </ul>
 <p>With <em>name</em> replaced with your name. Is everything good?</p>
 <p><code>ldns-verify-zone</code> can also hunt down the chain of trust. If you obtained the root anchor key (the resolver machine has it for sure ), you could have better checked the validity of the zone:</p>
-<pre><code>ldns-verify-zone -k /var/lib/unbound/root.key &lt;name&gt;.signed</code></pre></li>
+<pre><code>ldns-verify-zone -S -k /var/lib/unbound/root.key &lt;name&gt;.signed</code></pre></li>
 <li><p>Additional questions.</p>
 <p>What is the advantage of having both a KSK and ZSK?</p>
 <p>Does CDS make this different?</p></li>

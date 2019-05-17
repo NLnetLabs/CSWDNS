@@ -713,7 +713,7 @@ nsd-control reload</code></pre></li>
 <li><p>The DS RRs can be exported to the parent once the new KSK is ready.</p>
 <p>Get the new DS record using:</p>
 <pre><code>ods-enforcer key export --ds --zone ods-&lt;name&gt;.bangkok.lol</code></pre>
-<p>Add the DS record to your unsigned zone, change the RR type to CDS. After that you have to resign your zone and reload NSD, like you did before.</p></li>
+<p>Add the DS record to your unsigned zone, change the RR type to CDS. <strong>Remove the old CDS resource record!</strong> After that you have to resign your zone and reload NSD, like you did before.</p></li>
 <li><p>Wait until the DS has been updated.</p>
 <pre><code>dig @ns.bangkok.lol. ods-&lt;name&gt;.bangkok.lol DS</code></pre></li>
 <li><p>It is now safe to tell the Enforcer that it has been seen:</p>
