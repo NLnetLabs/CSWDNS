@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Register a new zone within the zone of a fellow team</title>
+  <title>Slides</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -574,60 +574,54 @@ border-color: #4078c0;
 <a href="slides.html">Slides</a>
 </font>
 <header>
-<h1 class="title">Register a new zone within the zone of a fellow team</h1>
+<h1 class="title">Slides</h1>
 </header>
-<p>We will create another zone and register that, but now within the zone of a fellow team.</p>
-<ol type="1">
-<li><p>Coordinate, with the help of Willem and Ralph, in which fellow team you will register your new domain. We will refer to the fellow team as <em>&lt;registry&gt;</em> and the domain which they registered as <em>&lt;registry&gt;</em>.bangkok.lol.</p>
-<p>Besides picking a fellow team (and their domain to register your new zone in), you have to make up a new name for the new zone.</p>
-<p>Your new zone will be <em>&lt;new name&gt;</em>.<em>&lt;registry&gt;</em>.bangkok.lol. where <em>&lt;new name&gt;</em> is prefably something different that <em>&lt;name&gt;</em>.</p>
-<p>Likewise, another team will register their new zone in your <em>&lt;name&gt;</em>.bangkok.lol domain as <em>&lt;their new zone&gt;</em>.<em>&lt;name&gt;</em>.bangkok.lol.</p></li>
-<li><p>Add a new zone to the NSD configuration for you new zone:</p>
-<pre><code>zone:
-    name: &lt;new name&gt;.&lt;registry&gt;.bangkok.lol
-    zonefile: &lt;new name&gt;</code></pre>
-<p>with <em>&lt;new name&gt;</em> replaced with the new name you just made up and <em>&lt;registry&gt;</em> with the zone of your fellow team.</p>
-<p>Intruct NSD to reload the nsd.conf configuration:</p>
-<pre><code>nsd-control reconfig</code></pre>
-<p>What does <code>/var/log/syslog</code> say?</p></li>
-<li><p>Create a zone file for the new zone. It might be easiest to copy your first zone and adapt values.</p>
-<p>Your zone should look something like this:</p>
-<pre><code>$ORIGIN &lt;new name&gt;.&lt;registry&gt;.bangkok.lol.
-$TTL 60
-@ IN SOA ns.&lt;new name&gt;.&lt;registry&gt;.bangkok.lol. admin.&lt;new name&gt;.&lt;registry&gt;.bangkok.lol. (
-         2    ; serial
-         360  ; refresh (6 minutes)
-         360  ; retry (6 minutes)
-         1800 ; expire (30 minutes)
-         60   ; minimum (1 minute)
-         )
-@   IN NS    ns.&lt;new name&gt;.&lt;registry&gt;.bangkok.lol.
-ns  IN A     &lt;IPv4 of your auth-&lt;team&gt; machine&gt;
-    IN AAAA  &lt;IPv6 of your auth-&lt;team&gt; machine&gt;
-@   IN A     &lt;IPv4 of your auth-&lt;team&gt; machine&gt;
-    IN AAAA  &lt;IPv6 of your auth-&lt;team&gt; machine&gt;
-www IN CNAME @</code></pre>
-<p>Reload NSD</p>
-<pre><code>nsd-control reload</code></pre>
-<p>Test if the domain is loaded.</p>
-<pre><code>dig @localhost &lt;new name&gt;.&lt;registry&gt;.bangkok.lol. SOA</code></pre></li>
-<li><p>Now register your domain with the registry.</p>
-<p>With the above zone, they need to add <code>&lt;new name&gt; IN NS ns.&lt;new name&gt;</code> to their zone file. They also need to add your glue records:</p>
-<pre><code>&lt;new name&gt;     IN NS   ns.&lt;new name&gt;
-ns.&lt;new name&gt;  IN A    &lt;IPv4 of your auth-&lt;team&gt; machine&gt;
-ns.&lt;new name&gt;  IN AAAA &lt;IPv6 of your auth-&lt;team&gt; machine&gt;</code></pre>
-<p>Once they are done, you should be able to iterate towards your new zone with drill:</p>
-<pre><code>drill -T &lt;new name&gt;.&lt;registry&gt;.bangkok.lol SOA</code></pre>
-<p>And see the identity of your own machine at</p>
+<h3 id="day-1">Day 1</h3>
+<ol start="0" type="1">
+<li><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/00-welcome.pdf">Welcome</a>
 <ul>
-<li>&lt;http://<new name>.<registry>.bangkok.lol/whoami&gt;</li>
+<li>lab exercise: <a href="part0.html">Introduction and access to lab environment</a></li>
 </ul></li>
-<li><p>Likewise, the other team that picked you as the registry will come to you and ask if you can put their NS record plus glue records in your zone.</p>
-<p>Don’t forget to increment serial number and reload your NSD!</p></li>
-<li><p>Is it also possible to reuse ns.<em>&lt;name&gt;</em>.bangkok.lol as the authoritative nameserver for the new zone?</p>
-<p>Do you still need glue records then?</p>
-<p>What is the advantage of glue records?</p>
-<p>Can things go wrong without glue records?</p></li>
+<li><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/10-DNS-Basics.pdf">DNS Basics</a>
+<ul>
+<li>lab exercise: <a href="part1.html">Setup a Caching Recursive Resolver using Unbound</a></li>
+</ul></li>
+<li><em>coming soon</em> <del><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/20-DNS-Basics-2.pdf">DNS Basics part 2</a></del>
+<ul>
+<li>lab exercise: <a href="part1b.html">Set up an Authoritative Name Server using NSD</a></li>
+</ul></li>
+<li><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/30-RRR.pdf">RRR</a>
+<ul>
+<li>lab exercise: <a href="part1c.html">Register a new zone within the zone of a fellow team</a></li>
+</ul></li>
+<li><em>coming soon</em> <del><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/40-XFR.pdf">DNS Resilience</a></del>
+<ul>
+<li>lab exercise: <a href="part1d.html">Setup redundant authoritative name server for your domain</a></li>
+</ul></li>
+<li><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/50-Vulnerabilities.pdf">DNS Vulnerabilities</a>
+<ul>
+<li>lab exercise: <a href="part2.html">Making your recursive resolver a validating resolver</a></li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="day-2">Day 2</h3>
+<ol start="6" type="1">
+<li><em>coming soon</em> <del><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/60-DNSSEC.pdf">DNSSEC</a></del>
+<ul>
+<li>lab exercise: <a href="part2.html">Signing your zone the primitive way</a></li>
+</ul></li>
+<li><em>coming soon</em> <del><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/SoftHSM.pdf">SoftHSM</a></del>
+<ul>
+<li>lab exercise: <a href="part3.html">SoftHSM</a></li>
+</ul></li>
+<li><em>coming soon</em> <del><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/OpenDNSSEC.pdf">OpenDNSSEC</a></del>
+<ul>
+<li>lab exercise: <a href="part4.html">OpenDNSSEC</a></li>
+</ul></li>
+<li><a href="https://github.com/NLnetLabs/CSWDNS/raw/master/slides/DNS-Privacy.pdf">DNS privacy in theory and practice</a>
+<ul>
+<li>lab exercise: <a href="part_privacy.html">DNS privacy lab</a></li>
+</ul></li>
 </ol>
 </body>
 </html>
