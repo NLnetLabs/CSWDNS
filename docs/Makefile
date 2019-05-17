@@ -3,7 +3,7 @@
 all: part0.html part1.html part1b.html part1c.html part1d.html part2.html part2b.html part_privacy.html part3.html part4.html
 
 .md.html:
-	pandoc -s --css=github.css --to=html5 --highlight-style=haddock \
+	pandoc -B menu.html -s --css=github.css --to=html5 --highlight-style=haddock \
        --self-contained -o $@ $<
 
 watch:
