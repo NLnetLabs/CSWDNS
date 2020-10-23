@@ -1,0 +1,5 @@
+num_vms = 14
+install_script_local_path = "demo.sh"
+parent_fqdn = "do.dns-school.org"
+region = "sgp1"
+do_slug_name = "ubuntu-19-04-x64"
