@@ -9,8 +9,8 @@ set of servers, which is suffixed with -*\<team nr\>* .
 Each of the servers is given a specific role, one should not mix these
 roles.  Two of these servers are:
 
-- res-0.do.dns-school.org
-- auth-0.do.dns-school.org
+- res-0.do.dns-school.org.
+- auth-0.do.dns-school.org.
 
 The machine `res-0` will play the role of a caching recursive DNS
 resolver.  The `auth-0` machine will

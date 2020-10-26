@@ -1,6 +1,6 @@
 % Signing your zone the primitive way
 
-This excercise takes place on your master server auth-*\<team nr\>*.do.dns-school.org or *\<name\>*.bangkok.lol.
+This excercise takes place on your master server auth-*\<team nr\>*.do.dns-school.org. or *\<name\>*.bangkok.lol.
 
 1.  We will need the `ldnsutils`.
 
@@ -110,12 +110,12 @@ This excercise takes place on your master server auth-*\<team nr\>*.do.dns-schoo
 
     Do you see an "unixtime" serial number in the SOA record for your zone?
 
-        dig @localhost <name>.bangkok.lol SOA
+        drill @localhost <name>.bangkok.lol. SOA
 
-    From your resolver machine (res-*\<team nr\>*.do.dns-school.org) you can 
+    From your resolver machine (res-*\<team nr\>*.do.dns-school.org.) you can 
     use drill to check the security:
 
-        drill -k /var/lib/unbound/root.key -TD <name>.bangkok.lol
+        drill -k /var/lib/unbound/root.key -TD <name>.bangkok.lol.
 
     Is the zone secure/trusted?
 
@@ -147,11 +147,11 @@ This excercise takes place on your master server auth-*\<team nr\>*.do.dns-schoo
 5.  Now try to resolve on your resolver machine
     (res-*\<team nr\>*.dn.dns-school.org).
 
-        dig +dnssec <name>.bangkok.lol SOA
+        drill -D <name>.bangkok.lol. SOA
 
     Is the zone secure?
 
-        drill -k /var/lib/unbound/root.key -TD <name>.bangkok.lol
+        drill -k /var/lib/unbound/root.key -TD <name>.bangkok.lol.
 
     Is the zone trusted?
 

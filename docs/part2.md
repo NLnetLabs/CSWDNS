@@ -9,10 +9,10 @@ Recursive nameservers need to be primed by a list of initial root
 servers.  In order for them to properly validate, they also need
 to be primed with the initial trust anchor.
 
-1.   Verify by using dig that indeed there was no validation.  Performing
+1.   Verify by using drill that indeed there was no validation.  Performing
      a lookup:
 
-        dig bogus.rootcanary.net
+        drill bogus.rootcanary.net.
 
      Returns the address for this domain, but in fact this domain is invalid
      and validation should have failed.
@@ -34,28 +34,28 @@ to be primed with the initial trust anchor.
     unbound will return DNSSEC data for domains that are signed.  Normally
     this output is suppressed, but can be seen using the +dnssec flag.
 
-        dig +dnssec www.bangkok.lol
+        drill -D www.bangkok.lol.
 
     Do you see the ad flag?
 
     And if you lookup your own domain?
 
-        dig +dnssec <name>.bangkok.lol
+        drill -D <name>.bangkok.lol.
 
 4.  Again try resolving a domain where DNSSEC is broken.
 
-        dig bogus.rootcanary.net
+        drill bogus.rootcanary.net.
 
 5.  But we can see that in fact the domain does contain the information
     if we bypass the DNSSEC validation:
 
-        dig +cd +dnssec bogus.rootcanary.net
+        drill -DoCD bogus.rootcanary.net.
 
 6.  Remember that we traced your domain from the root up with `drill`
 
     We can do that while validating too, like this:
 
-        drill -T -D -k /var/lib/unbound/root.key <name>.bangkok.lol 
+        drill -T -D -k /var/lib/unbound/root.key <name>.bangkok.lol.
 
     What does the output show you?
 
@@ -89,7 +89,7 @@ resolver.
 
     If you have a Mac, [open a Terminal Window](https://www.wikihow.com/Open-a-Terminal-Window-in-Mac) and do
 
-        dig @<IPv4 of your resolver> bangkok.lol
+        drill @<IPv4 of your resolver> bangkok.lol.
 
     Is you resolver usable from the classroom network?
 

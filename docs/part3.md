@@ -43,7 +43,7 @@ We won't immediately start using OpenDNSSEC, but some utilities packaged
 with OpenDNSSEC can be useful.  Also we need to configure SoftHSM in
 OpenDNSSEC.
 
-1.  Install OpenDNSSEC on auth-\<nr\>.do.dns-school.org using;
+1.  Install OpenDNSSEC on auth-\<nr\>.do.dns-school.org. using;
 
         apt install opendnssec opendnssec-doc opendnssec-enforcer-sqlite3
 

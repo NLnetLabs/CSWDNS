@@ -5,21 +5,21 @@ In this instruction we're going to team up with another team and ask them if
 they could provide secondary DNS service for our zone.
 
 1.  Coordinate, with the help of Willem and Ralph, which other team will
-    slave your zone.
+    create a secondary for your zone.
 
     We will do this for the first zone you created: *\<name\>*.bangkok.lol.
     If you finish early, you might consider to setup a secondary for your
     second domain (*\<new name\>*.*\<registry\>*.bangkok.lol) too.
 
     Willem and Ralph will add an NS entry for the secondary server to the
-    bangkok.lol zone file.  The registered delegations can be viewed here:
+    bangkok.lol. zone file.  The registered delegations can be viewed here:
 
       * <http://bangkok.lol/bangkok.lol.delegations.shtml>
 
 2.  Create a new entry in `nsd.conf` for the TSIG key which will be used to
-    authenticate the slave requesting a transfer.  Vice verse the slave
-    authenticates the zone coming from the master, so no attacking middle
-    box can interfere and infect the slave with a malicious version of
+    authenticate the secondary requesting a transfer.  Vice verse the secondary 
+    authenticates the zone coming from the primary, so no attacking middle
+    box can interfere and infect the secondary with a malicious version of
     the zone.
 
     1.  Make up a name.
@@ -71,19 +71,19 @@ they could provide secondary DNS service for our zone.
     With *\<algorithm\>* and *\<secret\>* replaced with the algorithm you
     picked and secret you created.
 
-3.  Update `/etc/nsd/nsd.conf` to notify and allow transfer to the slave server.
+3.  Update `/etc/nsd/nsd.conf` to notify and allow transfer to the secondary server.
 
     Provide `notify` and `provide-xfr` entries in the correct zone entry
-    for the slave server:
+    for the secondary server:
 
         zone:
             name: <name>.bangkok.lol
             zonefile: /etc/nsd/<name>
 
-            notify: <slave IPv6 address> NOKEY
-            notify: <slave IPv4 address> NOKEY
-            provide-xfr: <slave IPv6 address> 2<other team name>.<name>.bangkok.lol.
-            provide-xfr: <slave IPv4 address> 2<other team name>.<name>.bangkok.lol.
+            notify: <secondary IPv6 address> NOKEY
+            notify: <secondary IPv4 address> NOKEY
+            provide-xfr: <secondary IPv6 address> 2<other team name>.<name>.bangkok.lol.
+            provide-xfr: <secondary IPv4 address> 2<other team name>.<name>.bangkok.lol.
 
     Check that the configuration is correct and `reconfig` NSD.
 
@@ -94,7 +94,7 @@ they could provide secondary DNS service for our zone.
 
 4.  Bring the key to the other team confidentially.
 
-    The other team that is going to slave your domain, should add this key
+    The other team that is going to secondary your domain, should add this key
     exactly the same way too.  You have to give it to the other team
     confidentially because noone else may know your shared secret.
 
@@ -113,22 +113,22 @@ they could provide secondary DNS service for our zone.
 
         zone:
             name: <name>.bangkok.lol
-            allow-notify: <IPv6 of master server> NOKEY
-            allow-notify: <IPv4 of master server> NOKEY
-            request-xfr: <IPv6 of master server> 2<other team name>.<name>.bangkok.lol.
-            request-xfr: <IPv4 of master server> 2<other team name>.<name>.bangkok.lol.
+            allow-notify: <IPv6 of primary server> NOKEY
+            allow-notify: <IPv4 of primary server> NOKEY
+            request-xfr: <IPv6 of primary server> 2<other team name>.<name>.bangkok.lol.
+            request-xfr: <IPv4 of primary server> 2<other team name>.<name>.bangkok.lol.
 
     You could make it really easy for them by providing both the `key:` entry
     and the `zone:` entry together in a file with a secret name in
     `/var/www/html` so they can get it from your website (with the secret name).
 
 6.  Add to your `/etc/nsd/nsd.conf` a zone entry for the zone your team will
-    be the slave server.
+    be the secondary server.
 
     Make sure you checked configuration and `reconfig`'ed NSD after adding
     the zone entry for them!
 
-    Check the status of the slave zone with:
+    Check the status of the secondary zone with:
 
         nsd-control zonestatus
 
@@ -137,9 +137,9 @@ they could provide secondary DNS service for our zone.
 
 7.  Is the secondary name server serving your team's zone correctly?
 
-    Check if your authoritative's SOA is the same as the one on the slave:
+    Check if your authoritative's SOA is the same as the one on the secondaries:
 
-        dig @<other team's auth> <name>.bangkok.nl SOA
+        drill @<other team's auth> <name>.bangkok.lol. SOA
 
     Check if updates propogate timely by changing the SOA serial number of
     your zone, reloading and looking at the `SOA` at the secondary.
@@ -153,6 +153,6 @@ they could provide secondary DNS service for our zone.
     Why did we configure the notify without a TSIG key?
     What would be the benefit of notifying with a TSIG key?
 
-    What is the difference between master server and slave server, and
+    What is the difference between primary server and secondary server, and
     primary server and secondary server?
 

@@ -3,7 +3,7 @@
 We will start with setting up a single authoritative nameserver.  We will start with
 installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
 
-1.  Log onto your master machine auth-*\<nr\>*.do.dns-school.org and Install
+1.  Log onto your master machine auth-*\<nr\>*.do.dns-school.org. and Install
     the authoritative nameserver NSD:
 
         apt install nsd
@@ -61,7 +61,7 @@ installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
 
     Make up a good name for your team
 
-        <name>.bangkok.lol
+        <name>.bangkok.lol.
 
     To configure NSD to serve the zone add to nsd.conf:
 
@@ -110,12 +110,12 @@ installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
 
     Reload the zone contents for this domain using:
 
-        nsd-control reload <name>.bangkok.lol.
+        nsd-control reload <name>.bangkok.lol
 
     Use dig to verify that your authoritative server is answering correctly.
     E.g. using
 
-        dig @auth-<nr>.do.dns-school.org <name>.bangkok.lol. SOA
+        dig @auth-<nr>.do.dns-school.org. <name>.bangkok.lol. SOA
 
     This does not mean you zone exist yet.  The parent zone needs to delegate.
     Adding the delegation is normally part of the registration with your
@@ -141,7 +141,7 @@ installing an authoritative nameserver on: auth-*\<team nr\>*.do.dns-school.org.
     And then iterate the authoritative servers up to your domain from the
     root up:
 
-        drill -T <name>.bangkok.lol SOA
+        drill -T <name>.bangkok.lol. SOA
 
 7.  What happens if you point your browser to <http://www.team.bangkok.lol/>
     with *team* replaced by your team's *\<name\>*?

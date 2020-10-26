@@ -184,7 +184,7 @@ The zone is now signed and we have verified that DNSSEC is working. It is then t
 
 4.  Wait until the DS has been updated. Check the DS with the following command:
 
-        dig @ns.bangkok.lol. ods-<name>.bangkok.lol DS
+        drill @ns.bangkok.lol. ods-<name>.bangkok.lol. DS
 
 5.  It is now safe to tell the Enforcer that it has been seen. Replace KEYTAG with the keytag of your current KSK.
 
@@ -196,7 +196,7 @@ The zone is now signed and we have verified that DNSSEC is working. It is then t
 
 7. Verify that we can query the zone from your Unbound resolver. The AD-flag should be set:
 
-        dig +dnssec ods-<name>.bangkok.lol @res-<team>.do.dns-school.org
+        drill -D ods-<name>.bangkok.lol. @res-<team>.do.dns-school.org.
 
 ## KSK Rollover
 
@@ -226,7 +226,7 @@ The KSK rollover is usually done at the end of its lifetime. But a key rollover 
 
 5.  Wait until the DS has been updated.
 
-        dig @ns.bangkok.lol. ods-<name>.bangkok.lol DS
+        drill @ns.bangkok.lol. ods-<name>.bangkok.lol. DS
 
 6. It is now safe to tell the Enforcer that it has been seen:
 
@@ -242,4 +242,4 @@ The KSK rollover is usually done at the end of its lifetime. But a key rollover 
 
 9. Verify that we can query the zone from the *resolver* machine.
 
-        dig +dnssec ods-<name>.bangkok.lol @res-<team>.do.dns-school.org
+        drill -D ods-<name>.bangkok.lol. @res-<team>.do.dns-school.org.

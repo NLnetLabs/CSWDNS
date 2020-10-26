@@ -104,9 +104,9 @@ first few queries.
 
         unbound-control reload
 
-7.  Verify by using dig.
+7.  Verify by using drill.
 
-        dig @localhost www.bangkok.lol
+        drill @localhost www.bangkok.lol.
 
     It should get an answer.  If not, something went wrong.  Remember that
     DNS servers run as daemons and thus cannot report back directly to the
@@ -118,7 +118,7 @@ first few queries.
     This file varies per Unix/Linux distribution.  Also try looking up
     something that does not exist, like the MX record for
 
-        blahongasprongai.grungelgroubledork.mubolkargatom.com
+        blahongasprongai.grungelgroubledork.mubolkargatom.com.
 
     even though almost every name gets allocated nowadays, this still hasn't
     been claimed.
@@ -146,10 +146,10 @@ first few queries.
     applications on this machine will also start using the Unbound instance.
     Try it out again:
 
-        dig www.bangkok.lol
+        drill www.bangkok.lol.
 
     With a `TXT` query for name `hostname.bind` with class `CH` you can be
     certain you are speaking to your own resolver.
 
-        dig hostname.bind CH TXT
+        drill hostname.bind CH TXT
 

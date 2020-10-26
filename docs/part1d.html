@@ -573,18 +573,18 @@ border-color: #4078c0;
 <a href="part4.html">8. OpenDNSSEC</a> |
 <a href="part_privacy.html">9. DNS privacy</a>
 </font>
-<header>
+<header id="title-block-header">
 <h1 class="title">Setup redundant authoritative name server for your domain</h1>
 </header>
 <p>You can increase resilience of your domains by adding a secondary name server. In this instruction we’re going to team up with another team and ask them if they could provide secondary DNS service for our zone.</p>
 <ol type="1">
-<li><p>Coordinate, with the help of Willem and Ralph, which other team will slave your zone.</p>
+<li><p>Coordinate, with the help of Willem and Ralph, which other team will create a secondary for your zone.</p>
 <p>We will do this for the first zone you created: <em>&lt;name&gt;</em>.bangkok.lol. If you finish early, you might consider to setup a secondary for your second domain (<em>&lt;new name&gt;</em>.<em>&lt;registry&gt;</em>.bangkok.lol) too.</p>
 <p>Willem and Ralph will add an NS entry for the secondary server to the bangkok.lol zone file. The registered delegations can be viewed here:</p>
 <ul>
 <li><a href="http://bangkok.lol/bangkok.lol.delegations.shtml" class="uri">http://bangkok.lol/bangkok.lol.delegations.shtml</a></li>
 </ul></li>
-<li><p>Create a new entry in <code>nsd.conf</code> for the TSIG key which will be used to authenticate the slave requesting a transfer. Vice verse the slave authenticates the zone coming from the master, so no attacking middle box can interfere and infect the slave with a malicious version of the zone.</p>
+<li><p>Create a new entry in <code>nsd.conf</code> for the TSIG key which will be used to authenticate the secondary requesting a transfer. Vice verse the secondary authenticates the zone coming from the primary, so no attacking middle box can interfere and infect the secondary with a malicious version of the zone.</p>
 <ol type="1">
 <li><p>Make up a name.</p>
 <p>The key must have a name. The name can be arbitrary, but it is recommended that it reflects the names of the hosts that share this key. For example: 2<em>&lt;other teams name&gt;</em>.<em>&lt;name&gt;</em>.bangkok.lol.</p></li>
@@ -607,22 +607,22 @@ border-color: #4078c0;
     algorithm: &lt;algorithm&gt;
     secret: &quot;&lt;secret&gt;&quot;</code></pre>
 <p>With <em>&lt;algorithm&gt;</em> and <em>&lt;secret&gt;</em> replaced with the algorithm you picked and secret you created.</p></li>
-<li><p>Update <code>/etc/nsd/nsd.conf</code> to notify and allow transfer to the slave server.</p>
-<p>Provide <code>notify</code> and <code>provide-xfr</code> entries in the correct zone entry for the slave server:</p>
+<li><p>Update <code>/etc/nsd/nsd.conf</code> to notify and allow transfer to the secondary server.</p>
+<p>Provide <code>notify</code> and <code>provide-xfr</code> entries in the correct zone entry for the secondary server:</p>
 <pre><code>zone:
     name: &lt;name&gt;.bangkok.lol
     zonefile: /etc/nsd/&lt;name&gt;
 
-    notify: &lt;slave IPv6 address&gt; NOKEY
-    notify: &lt;slave IPv4 address&gt; NOKEY
-    provide-xfr: &lt;slave IPv6 address&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.
-    provide-xfr: &lt;slave IPv4 address&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.</code></pre>
+    notify: &lt;secondary IPv6 address&gt; NOKEY
+    notify: &lt;secondary IPv4 address&gt; NOKEY
+    provide-xfr: &lt;secondary IPv6 address&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.
+    provide-xfr: &lt;secondary IPv4 address&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.</code></pre>
 <p>Check that the configuration is correct and <code>reconfig</code> NSD.</p>
 <pre><code>nsd-checkconf /etc/nsd/nsd.conf
 nsd-control reconfig</code></pre>
 <p>What is the benefit of using both IPv6 and IPv4?</p></li>
 <li><p>Bring the key to the other team confidentially.</p>
-<p>The other team that is going to slave your domain, should add this key exactly the same way too. You have to give it to the other team confidentially because noone else may know your shared secret.</p>
+<p>The other team that is going to secondary your domain, should add this key exactly the same way too. You have to give it to the other team confidentially because noone else may know your shared secret.</p>
 <p>Consider a way to do this. Options might be e-mail, usb stick, paper, sharing it under a secret name on your webite.</p>
 <p>For the last method (via your website), you can create a file with a <em>&lt;secret name&gt;</em> with the <code>key</code> entry to be added to <code>nsd.conf</code> in the <code>/var/www/html</code> directory. The other team can then access your secret via</p>
 <ul>
@@ -632,25 +632,25 @@ nsd-control reconfig</code></pre>
 <p>The entry should like something like this:</p>
 <pre><code>zone:
     name: &lt;name&gt;.bangkok.lol
-    allow-notify: &lt;IPv6 of master server&gt; NOKEY
-    allow-notify: &lt;IPv4 of master server&gt; NOKEY
-    request-xfr: &lt;IPv6 of master server&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.
-    request-xfr: &lt;IPv4 of master server&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.</code></pre>
+    allow-notify: &lt;IPv6 of primary server&gt; NOKEY
+    allow-notify: &lt;IPv4 of primary server&gt; NOKEY
+    request-xfr: &lt;IPv6 of primary server&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.
+    request-xfr: &lt;IPv4 of primary server&gt; 2&lt;other team name&gt;.&lt;name&gt;.bangkok.lol.</code></pre>
 <p>You could make it really easy for them by providing both the <code>key:</code> entry and the <code>zone:</code> entry together in a file with a secret name in <code>/var/www/html</code> so they can get it from your website (with the secret name).</p></li>
-<li><p>Add to your <code>/etc/nsd/nsd.conf</code> a zone entry for the zone your team will be the slave server.</p>
+<li><p>Add to your <code>/etc/nsd/nsd.conf</code> a zone entry for the zone your team will be the secondary server.</p>
 <p>Make sure you checked configuration and <code>reconfig</code>’ed NSD after adding the zone entry for them!</p>
-<p>Check the status of the slave zone with:</p>
+<p>Check the status of the secondary zone with:</p>
 <pre><code>nsd-control zonestatus</code></pre>
 <p>Does is say <code>state: ok</code>? Did the zone transfer? If not we must find out what went wrong.</p></li>
 <li><p>Is the secondary name server serving your team’s zone correctly?</p>
-<p>Check if your authoritative’s SOA is the same as the one on the slave:</p>
-<pre><code>dig @&lt;other team's auth&gt; &lt;name&gt;.bangkok.nl SOA</code></pre>
+<p>Check if your authoritative’s SOA is the same as the one on the secondaries:</p>
+<pre><code>dig @&lt;other team&#39;s auth&gt; &lt;name&gt;.bangkok.nl SOA</code></pre>
 <p>Check if updates propogate timely by changing the SOA serial number of your zone, reloading and looking at the <code>SOA</code> at the secondary.</p></li>
 <li><p>Add the NS entry for the secondary to your zone.</p>
 <p>Don’t forget to increment SOA serial too and to reload your zone.</p></li>
 <li><p>Some more questions.</p>
 <p>Why did we configure the notify without a TSIG key? What would be the benefit of notifying with a TSIG key?</p>
-<p>What is the difference between master server and slave server, and primary server and secondary server?</p></li>
+<p>What is the difference between primary server and secondary server, and primary server and secondary server?</p></li>
 </ol>
 </body>
 </html>

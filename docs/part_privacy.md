@@ -17,7 +17,7 @@ We will use the logging functionality in Unbound to display all the outgoing que
 2. Restart your Unbound instance to make sure the cache is empty
 3. Monitor the Unbound log output for all outgoing queries (hint, grep for `sending`)
 4. Send a DNS query to Unbound (replace `<team-number>` with the number of your team):
-   `drill www.bangkok.lol @res-<team-number>.do.dns-school.org`
+   `drill www.bangkok.lol. @res-<team-number>.do.dns-school.org.`
 5. Observe which information from the query is exposed to which upstream name
    servers.
 
@@ -27,7 +27,7 @@ We will now repeat this exercise with QNAME minimisation enabled.
    `qname-minimisation: yes`
 7. Restart your Unbound instance again to make sure the cache is empty
 8. Send the same DNS query to Unbound:
-   `drill www.bangkok.lol @res-<team-number>.do.dns-school.org`
+   `drill www.bangkok.lol. @res-<team-number>.do.dns-school.org.`
 5. Observe what information from the query is exposed to which upstream name
    servers. What are the differences?
 
@@ -39,28 +39,28 @@ Another way to limit the queries that Unbound has to send upstream is by loading
 ```
    auth-zone:
      name: "."
-     master: 199.9.14.201         # b.root-servers.net
-     master: 192.33.4.12          # c.root-servers.net
-     master: 199.7.91.13          # d.root-servers.net
-     master: 192.5.5.241          # f.root-servers.net
-     master: 192.112.36.4         # g.root-servers.net
-     master: 193.0.14.129         # k.root-servers.net
-     master: 192.0.47.132         # xfr.cjr.dns.icann.org
-     master: 192.0.32.132         # xfr.lax.dns.icann.org
-     master: 2001:500:200::b      # b.root-servers.net
-     master: 2001:500:2::c        # c.root-servers.net
-     master: 2001:500:2d::d       # d.root-servers.net
-     master: 2001:500:2f::f       # f.root-servers.net
-     master: 2001:500:12::d0d     # g.root-servers.net
-     master: 2001:7fd::1          # k.root-servers.net
-     master: 2620:0:2830:202::132 # xfr.cjr.dns.icann.org
-     master: 2620:0:2d0:202::132  # xfr.lax.dns.icann.org
+     master: 199.9.14.201         # b.root-servers.net.
+     master: 192.33.4.12          # c.root-servers.net.
+     master: 199.7.91.13          # d.root-servers.net.
+     master: 192.5.5.241          # f.root-servers.net.
+     master: 192.112.36.4         # g.root-servers.net.
+     master: 193.0.14.129         # k.root-servers.net.
+     master: 192.0.47.132         # xfr.cjr.dns.icann.org.
+     master: 192.0.32.132         # xfr.lax.dns.icann.org.
+     master: 2001:500:200::b      # b.root-servers.net.
+     master: 2001:500:2::c        # c.root-servers.net.
+     master: 2001:500:2d::d       # d.root-servers.net.
+     master: 2001:500:2f::f       # f.root-servers.net.
+     master: 2001:500:12::d0d     # g.root-servers.net.
+     master: 2001:7fd::1          # k.root-servers.net.
+     master: 2620:0:2830:202::132 # xfr.cjr.dns.icann.org.
+     master: 2620:0:2d0:202::132  # xfr.lax.dns.icann.org.
      fallback-enabled: yes
      for-downstream: no
      for-upstream: yes
 ```
 7. Restart Unbound and again send the same query:
-   `drill www.bangkok.lol @res-<team-number>.do.dns-school.org`
+   `drill www.bangkok.lol. @res-<team-number>.do.dns-school.org.`
    How do the queries that are send to the root name servers with the auth-zone compare to the earlier    queries for the same domain name?
    
 ### Aggressive NSEC
@@ -71,7 +71,7 @@ We first need to get some NSEC records in our cache.
 
 8. Send a query for a non-existing domain. Observe the returned NSEC records.
    
-       drill -D bangkok.nlnetlabs.nl @res-<team-number>.do.dns-school.org
+       drill -D bangkok.nlnetlabs.nl. @res-<team-number>.do.dns-school.org.
 
    For above query this is one of the NSEC records we get back:
     
@@ -79,9 +79,9 @@ We first need to get some NSEC records in our cache.
 
 9. Send a query for another domain that is covered by this NSEC record:
 
-       drill -D banana.nlnetlabs.nl @res-<team-number>.do.dns-school.org
+       drill -D banana.nlnetlabs.nl. @res-<team-number>.do.dns-school.org.
 
-   If you now look at your Unbound log you will see that for both queries Unbound will contact the nlnetlabs.nl name server.
+   If you now look at your Unbound log you will see that for both queries Unbound will contact the nlnetlabs.nl. name server.
 
 9. Enable aggressive NSEC in your Unbound configuration:
 
@@ -89,11 +89,11 @@ We first need to get some NSEC records in our cache.
 
 10. Restart Unbound and send the same two queries:
     
-        drill -D bangkok.nlnetlabs.nl @res-<team-number>.do.dns-school.org
+        drill -D bangkok.nlnetlabs.nl. @res-<team-number>.do.dns-school.org.
 
-        drill -D banana.nlnetlabs.nl @res-<team-number>.do.dns-school.org
+        drill -D banana.nlnetlabs.nl. @res-<team-number>.do.dns-school.org.
 
-    Can you see a difference in the queuries that are send to the nlnetlabs.nl name servers?
+    Can you see a difference in the queuries that are send to the nlnetlabs.nl. name servers?
 
 ### Stubby
 We will use Stubby to proxy the DNS queries originating from our laptop over an encrypted channel to Unbound.
@@ -126,7 +126,7 @@ We will use Stubby to proxy the DNS queries originating from our laptop over an 
 
 14. Test your configuration by sending a DNS query to stubby:
    
-        drill dns-school.org @127.0.0.1
+        drill dns-school.org. @127.0.0.1
 
 ### EDNS client subnet, client information exposure
 In the previous example we configured stubby to send all queries to a resolver that sends ECS information in queries going to the google.com name servers. We are now going to look at the privacy implications of ECS.
@@ -168,7 +168,7 @@ To get a better understanding of the privacy implications between the stub and t
 22. Limit the displayed traffic to traffic that is going to and from your resolver, e.g. using the filter `ip.addr==<your-Unbound-IP-address>` where `<your-Unbound-IP-address>` the is replaced by address of your Unbound instance.
 23. Send a DNS query via stubby to your Unbound resolver:
     
-        drill bangkok.lol @127.0.0.1
+        drill bangkok.lol. @127.0.0.1
 
 24. Observe in wireshark the DNS information that is visible on the wire. This data will be visible to everybody that can somehow see the data that your machine is sending and receiving!
 
@@ -183,7 +183,7 @@ We will start by configuring Unbound to be a TLS server. For this a TLS certific
 
 26. Request a certificate for the domain of your resolver:
     
-        certbot certonly --standalone -d res-<team-number>.do.dns-school.org
+        certbot certonly --standalone -d res-<team-number>.do.dns-school.org.
 
     Replace *\<team-number\>* with your team number.
     

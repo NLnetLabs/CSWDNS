@@ -15,7 +15,7 @@ a fellow team.
     *\<new name\>* is prefably something different that *\<name\>*.
 
     Likewise, another team will register their new zone in your
-    *\<name\>*.bangkok.lol domain as *\<their new zone\>*.*\<name\>*.bangkok.lol.
+    *\<name\>*.bangkok.lol. domain as *\<their new zone\>*.*\<name\>*.bangkok.lol.
 
 
 2.  Add a new zone to the NSD configuration for you new zone:
@@ -64,7 +64,7 @@ a fellow team.
 
     Test if the domain is loaded.
 
-        dig @localhost <new name>.<registry>.bangkok.lol. SOA
+        drill @localhost <new name>.<registry>.bangkok.lol. SOA
 
 5.  Now register your domain with the registry.
 
@@ -80,7 +80,7 @@ a fellow team.
     Once they are done, you should be able to iterate towards your new zone
     with drill:
 
-        drill -T <new name>.<registry>.bangkok.lol SOA
+        drill -T <new name>.<registry>.bangkok.lol. SOA
 
     And see the identity of your own machine at
 
@@ -91,7 +91,7 @@ a fellow team.
 
     Don't forget to increment serial number and reload your NSD!
 
-7.  Is it also possible to reuse ns.*\<name\>*.bangkok.lol as the authoritative
+7.  Is it also possible to reuse ns.*\<name\>*.bangkok.lol. as the authoritative
     nameserver for the new zone?
 
     Do you still need glue records then?
